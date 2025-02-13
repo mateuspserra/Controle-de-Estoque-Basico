@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for, session
 import mysql.connector
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='static')
 
 app.secret_key = 'estoquedeprodutos'
 
@@ -215,7 +215,7 @@ def listar_movimentacoes():
 @app.route('/consultar_produto')
 def consultar_produto():
     id_produto = request.args.get('id_produto')
-    comando = 'select * from produtos p join categorias c on p.categoria_id = c.id_categoria where p.id_produto = %s'
+    comando = 'select * from produtos p join categorias c on p.categoria_id = c.id_categoria where p.categoria_id = %s'
     cursor.execute(comando, (id_produto,))
     produto = cursor.fetchall()
     return render_template('consultar_produto.html', produto = produto)

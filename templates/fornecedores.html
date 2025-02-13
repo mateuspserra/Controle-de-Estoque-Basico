@@ -1,23 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fornecedores</title>
+    <link rel="stylesheet" href="static/fornecedor.css">
 </head>
 <body>
     <h1>Fornecedores</h1>
-    <form action="" method = 'POST'>
-        <label for="">Nome: </label><br>
-        <input type="text" name="nome"><br><br>
-        <label for="">Endereço: </label><br>
-        <input type="text" name="endereco"><br><br>
-        <label for="">Telefone: </label><br>
-        <input type="text" name="telefone"><br><br>
-        <label for="">Email: </label><br>
-        <input type="text" name="email"><br><br>
-        <input type="submit" value="Enviar">
-        <input type="submit" value="Voltar" href="/">
+
+    <form action="" method="POST">
+        <label for="nome">Nome:</label><br>
+        <input type="text" id="nome" name="nome" required><br><br>
+
+        <label for="endereco">Endereço:</label><br>
+        <input type="text" id="endereco" name="endereco" required><br><br>
+
+        <label for="telefone">Telefone:</label><br>
+        <input type="text" id="telefone" name="telefone" required><br><br>
+
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <div class="buttons">
+            <input type="submit" value="Enviar">
+            <a href="/" class="button-link">Voltar</a>
+        </div>
     </form>
 </body>
 </html>

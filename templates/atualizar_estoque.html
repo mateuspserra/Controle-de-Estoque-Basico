@@ -1,25 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Atualizar Estoque</title>
+    <link rel="stylesheet" href="static/update.css">
 </head>
 <body>
     <h1>Atualizar Estoque</h1>
     <form action="/atualizar_estoque/{{ produto.id_produto }}" method="POST">
-        <label for="">Nome: </label><br>
-        <input type="text" name="nome_produto" value="{{produto['nome_produto']}}"><br><br>
-        <label for="">Preço: </label><br>
-        <input type="number" name="preco" value="{{produto['number']}}"><br><br>
-        <label for="">Quantidade: </label><br>
-        <input type="number" name="quantidade" value="{{produto['quantidade']}}"><br><br>
-        <label for="">Categoria ID: </label><br>
-        <input type="number" name="categoria_id" value="{{produto['categoria_id']}}"><br><br>
-        <label for="">Descrição: </label><br>
-        <input type="text" name="descricao" value="{{produto['descricao']}}"><br><br>
-        <input type="submit" value="Salvar">
-        <input type="submit" value="Voltar" href="/listar_produtos">
+        <label for="nome_produto">Nome:</label><br>
+        <input type="text" id="nome_produto" name="nome_produto" value="{{ produto['nome_produto'] }}" required><br><br>
+
+        <label for="preco">Preço:</label><br>
+        <input type="number" id="preco" name="preco" value="{{ produto['preco'] }}" required><br><br>
+
+        <label for="quantidade">Quantidade:</label><br>
+        <input type="number" id="quantidade" name="quantidade" value="{{ produto['quantidade'] }}" required><br><br>
+
+        <label for="categoria_id">Categoria ID:</label><br>
+        <input type="number" id="categoria_id" name="categoria_id" value="{{ produto['categoria_id'] }}" required><br><br>
+
+        <label for="descricao">Descrição:</label><br>
+        <input type="text" id="descricao" name="descricao" value="{{ produto['descricao'] }}" required><br><br>
+
+        <div class="buttons">
+            <input type="submit" value="Salvar">
+            <a href="/listar_produtos" class="button-link">Voltar</a>
+        </div>
     </form>
 </body>
 </html>

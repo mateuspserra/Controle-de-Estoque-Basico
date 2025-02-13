@@ -1,25 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastrar Protudos</title>
+    <title>Cadastrar Produtos</title>
+    <link rel="stylesheet" href="static/cadastrar.css">
 </head>
 <body>
     <h1>Cadastrar Produtos</h1>
-    <form action="" method = 'POST'>
-        <label for="">Nome: </label><br>
-        <input type="text" name="nome_produto"><br><br>
-        <label for="">Preço: </label><br>
-        <input type="number" name="preco"><br><br>
-        <label for="">Quantidade: </label><br>
-        <input type="number" name="quantidade"><br><br>
-        <label for="">Categoria ID: </label><br>
-        <input type="number" name="categoria_id"><br><br>
-        <label for="">Descrição</label><br>
-        <input type="text" name="descricao"><br><br>
-        <input type="submit" value="Cadastrar">
-        <input type="submit" value="Voltar" href="/">
+    <form action="" method="POST">
+        <label>Nome:</label>
+        <input type="text" name="nome_produto" required>
+
+        <label>Preço:</label>
+        <input type="number" name="preco" step="0.01" required>
+
+        <label>Quantidade:</label>
+        <input type="number" name="quantidade" required>
+
+        <label>Categoria ID:</label>
+        <input type="number" name="categoria_id" required>
+
+        <label>Descrição:</label>
+        <input type="text" name="descricao">
+
+        <div class="buttons">
+            <input type="submit" value="Cadastrar">
+            <a href="/" class="button-link">Voltar</a>
+        </div>
     </form>
 </body>
 </html>

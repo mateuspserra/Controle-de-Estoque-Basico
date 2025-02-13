@@ -1,16 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Categorias</title>
+    <link rel="stylesheet" href="static/categoria.css">
 </head>
 <body>
-    <h1>Categorias</h1>
-    <form action="" method = 'POST'>
-        <label for="">Nome: </label><br>
-        <input type="text" name="nome_categoria"><br><br>
-        <input type="submit" value="Cadastrar">
-        <input type="submit" value="Voltar" href="/">
+    <h1>Cadastrar Categoria</h1>
+    <form action="" method="POST">
+        <label for="nome_categoria">Nome:</label><br>
+        <input type="text" id="nome_categoria" name="nome_categoria" required><br><br>
+        
+        <div class="buttons">
+            <input type="submit" value="Cadastrar">
+            <a href="/" class="button-link">Voltar</a>
+        </div>
+    </form>
 </body>
 </html>

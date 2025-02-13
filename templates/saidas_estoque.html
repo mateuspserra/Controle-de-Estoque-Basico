@@ -1,23 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Saidas de Estoque</title>
+    <title>Saídas de Estoque</title>
+    <link rel="stylesheet" href="static/saida.css">
 </head>
 <body>
-    <h1>Saidas de Estoque</h1>
-    <form action="" method = 'POST'>
-        <label for="">Produto ID: </label><br>
-        <input type="number" name="produto_id"><br><br>
-        <label for="">Quantidade: </label><br>
-        <input type="number" name="quantidade"><br><br>
-        <label for="">Preço Venda: </label><br>
-        <input type="number" name="preco_venda"><br><br>
-        <label for="">Destino: </label><br>
-        <input type="text" name="destino"><br><br>
-        <input type="submit" value="Enviar">
-        <input type="submit" value="Voltar" href="/">
+    <h1>Saídas de Estoque</h1>
+
+    <form action="" method="POST">
+        <label for="produto_id">Produto ID:</label><br>
+        <input type="number" id="produto_id" name="produto_id" required><br><br>
+
+        <label for="quantidade">Quantidade:</label><br>
+        <input type="number" id="quantidade" name="quantidade" required><br><br>
+
+        <label for="preco_venda">Preço Venda:</label><br>
+        <input type="number" id="preco_venda" name="preco_venda" required><br><br>
+
+        <label for="destino">Destino:</label><br>
+        <input type="text" id="destino" name="destino" required><br><br>
+
+        <div class="buttons">
+            <input type="submit" value="Enviar">
+            <a href="/" class="button-link">Voltar</a>
+        </div>
     </form>
 </body>
 </html>
