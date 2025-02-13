@@ -20,20 +20,21 @@
         </tr>
         {% for produto in produtos %}
         <tr>
-            <td>{{ produto.id }}</td>
-            <td>{{ produto.nome }}</td>
+            <td>{{ produto.id_produto }}</td>
+            <td>{{ produto.nome_produto }}</td>
             <td>{{ produto.preco }}</td>
             <td>{{ produto.quantidade }}</td>
             <td>{{ produto.categoria_id }}</td>
             <td>{{ produto.data_cadastro }}</td>
             <td>{{ produto.descricao }}</td>
             <td>
-                <a href="/atualizar_estoque/{{ produto.id }}">Atualizar</a>
-                <a href="/excluir_estoque/{{ produto.id}}" onclick="return confirm('Excluir Estoque {{produto.id}}?')">Excluir</a>
+                <a href="/atualizar_estoque/{{ produto.id_produto }}">Atualizar</a>
+                <a href="/excluir_estoque/{{ produto.id_produto }}" onclick="return confirm('Excluir Estoque {{produto.id_produto}}?')">Excluir</a>
             </td> 
         </tr>
         {% endfor %}
     </table><br>
-    <a href="/"><button>Voltar</button></a>
+    <a href="/"><button>Voltar</button></a><br><br>
+    <a href="consultar_produto"><button>Consultar Produto</button></a>
 </body>
 </html>

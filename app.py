@@ -26,12 +26,12 @@ def index():
 @app.route('/categorias', methods=['GET', 'POST'])
 def categorias():
     if request.method == 'POST':
-        nome = request.form['nome']
+        nome_categoria = request.form['nome_categoria']
 
-        comando = 'insert into categorias (nome) values (%s)'
-        valores = (nome,)
+        comando = 'insert into categorias (nome_categoria) values (%s)'
+        valores = (nome_categoria,)
 
-        if not nome:
+        if not nome_categoria:
             return redirect(url_for('index'))
 
         cursor.execute(comando, valores)
@@ -45,17 +45,17 @@ def categorias():
 @app.route('/cadastrar_produtos', methods=['GET', 'POST'])
 def produtos():
     if request.method  == 'POST':
-        nome = request.form['nome']
+        nome_produto = request.form['nome_produto']
         descricao = request.form['descricao']
         preco = request.form['preco']
         quantidade = request.form['quantidade']
         categoria_id = request.form['categoria_id']
         
-        if not nome or not descricao or not preco or not quantidade or not categoria_id:
+        if not nome_produto or not descricao or not preco or not quantidade or not categoria_id:
             return redirect(url_for('index'))
 
-        comando = 'insert into produtos (nome, descricao, preco, quantidade, categoria_id) values (%s, %s, %s, %s, %s)'
-        valores = (nome, descricao, preco, quantidade, categoria_id)
+        comando = 'insert into produtos (nome_produto, descricao, preco, quantidade, categoria_id) values (%s, %s, %s, %s, %s)'
+        valores = (nome_produto, descricao, preco, quantidade, categoria_id)
 
         cursor.execute(comando, valores)
 
@@ -153,10 +153,10 @@ def fornecedores():
     
     return render_template('fornecedores.html')
 
-@app.route('/atualizar_estoque/<int:id>', methods={'GET', 'POST'})
-def atualizar_estoque(id):
+@app.route('/atualizar_estoque/<int:id_produto>', methods={'GET', 'POST'})
+def atualizar_estoque(id_produto):
     if request.method == 'POST':
-        nome = request.form['nome']
+        nome_produto = request.form['nome_produto']
         descricao = request.form['descricao']
         preco = request.form['preco']
         quantidade = request.form['quantidade']
@@ -167,8 +167,8 @@ def atualizar_estoque(id):
         except ValueError:
             quantidade = 0
 
-        comando = 'update produtos set nome = %s, descricao = %s, preco = %s, quantidade = quantidade + %s, categoria_id = %s where id = %s'
-        valores = (nome, descricao, preco, quantidade, categoria_id, id)
+        comando = 'update produtos set nome_produto = %s, descricao = %s, preco = %s, quantidade = quantidade + %s, categoria_id = %s where id_produto = %s'
+        valores = (nome_produto, descricao, preco, quantidade, categoria_id, id_produto)
 
         cursor.execute(comando, valores)
 
@@ -176,16 +176,16 @@ def atualizar_estoque(id):
 
         return redirect(url_for('listar_produtos'))
     
-    comando = 'select * from produtos where id = %s'
-    valor = (id,)
+    comando = 'select * from produtos where id_produto = %s'
+    valor = (id_produto,)
     cursor.execute(comando, valor)
     produtos = cursor.fetchone()
     return render_template('atualizar_estoque.html', produto = produtos)
 
-@app.route('/excluir_estoque/<int:id>')
-def exlcuir_estoque(id):
-    comando = 'delete from produtos where id = %s'
-    valor = (id,)
+@app.route('/excluir_estoque/<int:id_produto>')
+def exlcuir_estoque(id_produto):
+    comando = 'delete from produtos where id_produto = %s'
+    valor = (id_produto,)
 
     cursor.execute(comando, valor)
     conexao.commit()
@@ -214,10 +214,10 @@ def listar_movimentacoes():
 
 @app.route('/consultar_produto')
 def consultar_produto():
-    id = request.args.get('id')
-    comando = 'select p.*, c.nome AS categoria from categorias c join produtos p on p.categoria_id = c.id where p.id = %s'
-    cursor.execute(comando, (id,))
-    produto = cursor.fetchone()
+    id_produto = request.args.get('id_produto')
+    comando = 'select * from produtos p join categorias c on p.categoria_id = c.id_categoria where p.id_produto = %s'
+    cursor.execute(comando, (id_produto,))
+    produto = cursor.fetchall()
     return render_template('consultar_produto.html', produto = produto)
 
 

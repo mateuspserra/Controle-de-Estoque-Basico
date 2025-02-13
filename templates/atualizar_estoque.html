@@ -7,9 +7,9 @@
 </head>
 <body>
     <h1>Atualizar Estoque</h1>
-    <form action="/atualizar_estoque/{{ produto.id }}" method="POST">
+    <form action="/atualizar_estoque/{{ produto.id_produto }}" method="POST">
         <label for="">Nome: </label><br>
-        <input type="text" name="nome" value="{{produto['nome']}}"><br><br>
+        <input type="text" name="nome_produto" value="{{produto['nome_produto']}}"><br><br>
         <label for="">Preço: </label><br>
         <input type="number" name="preco" value="{{produto['number']}}"><br><br>
         <label for="">Quantidade: </label><br>
