@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Consulta de Produtos</title>
+</head>
+<body>
+    <h1>Consulta de Produtos</h1>
+
+    <form action="" method="GET">
+        <h3>Por favor, digite o ID:</h3>
+        <input type="number" name="id"><br><br>
+        <input type="submit" value="Enviar">
+        <a href="/"><button type="button">Voltar</button></a><br><br>
+        </form>
+
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>ID Categoria</th>
+            <th>Categoria</th>
+            <th>ID Produto</th>
+            <th>Nome Produto</th>
+            <th>Descrição</th>
+            <th>Preço</th>
+            <th>Quantidade</th>
+            <th>Data Cadastro</th>
+        </tr>
+        {% for produto in produtos %}
+        <tr>            
+            <td>{{ produto.id}}</td>
+            <td>{{ produto.categoria_id}}</td>
+            <td>{{ produto.categoria_nome}}</td>
+            <td>{{ produto.id}}</td>
+            <td>{{ produto.nome}}</td>
+            <td>{{ produto.descricao}}</td>
+            <td>{{ produto.preco}}</td>
+            <td>{{ produto.quantidade}}</td>
+            <td>{{ produto.data_cadastro}}</td>
+            <td>
+                <a href="/editar-produto/{{ produto.id_produto }}">Editar</a>
+                <a href="/excluir-produto/{{ produto.id_produto}}">Excluir</a>
+            </td>            
+        </tr>
+        {% endfor %}
+    </table><br><br>
+</body>
+</html>

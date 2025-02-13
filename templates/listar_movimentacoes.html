@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Movimentações</title>
+</head>
+<body>
+    <h1>Lista de Movimentações</h1>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Produto ID</th>
+            <th>Tipo de Movimento</th>
+            <th>Quantidade</th>
+            <th>Data Movimento</th>
+            <th>Observação</th>
+            <th>Ações</th>
+        </tr>
+        {% for produto in produtos %}
+        <tr>
+            <td>{{ produto.id }}</td>
+            <td>{{ produto.produto_id }}</td>
+            <td>{{ produto.tipo_movimento }}</td>
+            <td>{{ produto.quantidade }}</td>
+            <td>{{ produto.data_movimento }}</td>
+            <td>{{ produto.observacao }}</td>
+            <td>
+                <!-- <a href="/atualizar_estoque/{{ produto.id }}">Atualizar</a>
+                <a href="/excluir_estoque/{{ produto.id}}" onclick="return confirm('Excluir Estoque {{produto.id}}?')">Excluir</a> -->
+            </td> 
+        </tr>
+        {% endfor %}
+    </table><br>
+    <a href="/"><button>Voltar</button></a>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atualizar Estoque</title>
+</head>
+<body>
+    <h1>Atualizar Estoque</h1>
+    <form action="/atualizar_estoque/{{ produto.id }}" method="POST">
+        <label for="">Nome: </label><br>
+        <input type="text" name="nome" value="{{produto['nome']}}"><br><br>
+        <label for="">Preço: </label><br>
+        <input type="number" name="preco" value="{{produto['number']}}"><br><br>
+        <label for="">Quantidade: </label><br>
+        <input type="number" name="quantidade" value="{{produto['quantidade']}}"><br><br>
+        <label for="">Categoria ID: </label><br>
+        <input type="number" name="categoria_id" value="{{produto['categoria_id']}}"><br><br>
+        <label for="">Descrição: </label><br>
+        <input type="text" name="descricao" value="{{produto['descricao']}}"><br><br>
+        <input type="submit" value="Salvar">
+        <input type="submit" value="Voltar" href="/listar_produtos">
+    </form>
+</body>
+</html>
